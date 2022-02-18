@@ -9,6 +9,14 @@ namespace PEDL_DesafioPractico1_Ejercicio2
     class Material
     {
 
+        private string codigo;
+
+        public string Codigo
+        {
+            get { return codigo; }
+            set { codigo = value; }
+        }
+
         private string nombre;
 
         public string Nombre
@@ -17,20 +25,12 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             set { nombre = value; }
         }
 
-        private double precio;
+        private string autor;
 
-        public double Precio
+        public string Autor
         {
-            get { return precio; }
-            set { precio = value; }
-        }
-
-        private string codigo;
-
-        public string Codigo
-        {
-            get { return codigo; }
-            set { codigo = value; }
+            get { return autor; }
+            set { autor = value; }
         }
 
         private string tipo;
@@ -41,13 +41,16 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             set { tipo = value; }
         }
 
-        private string autor;
+        private double precio;
 
-        public string Autor
+        public double Precio
         {
-            get { return autor; }
-            set { autor = value; }
+            get { return precio; }
+            set { precio = value; }
         }
+
+
+        
 
     }
 }
