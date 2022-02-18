@@ -14,7 +14,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
     {
 
         List<Material> Materiales = new List<Material>();
-        List<Material> validador = new List<Material>();
+        List<string> ListaVerificar = new List<string>();
         private int editindex = -1;
 
         private void actualizargrid()
@@ -125,6 +125,12 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                 mat.Tipo = cbtipo.Text;
                 mat.Precio = txtprecio.Text;
 
+                if (ListaVerificar.Contains(mat.Codigo))
+                {
+                    MessageBox.Show("El codigo ya existe, Por favor ingrese otro", "Advertencia");
+                    return;
+                }
+
                 if (editindex < -1) //Verifica si hay un indice seleccionado
                 {
                     Materiales[editindex] = mat;
@@ -132,6 +138,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                 }
                 else
                 {
+                    ListaVerificar.Add(mat.Codigo);
                     Materiales.Add(mat); //Agrego todos los dats que recolecté, en la lista
                 }
                 actualizargrid();
@@ -143,9 +150,8 @@ namespace PEDL_DesafioPractico1_Ejercicio2
         {
             if (editindex > -1) //Verificamos si tenemos seleccionado alguna fila
             {
-
-
                 Materiales.RemoveAt(editindex);
+                ListaVerificar.RemoveAt(editindex);
                 editindex = -1;
                 actualizargrid();
             }
@@ -189,6 +195,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                 Material mat = new Material();
 
                 Materiales.RemoveAt(editindex);
+                ListaVerificar.RemoveAt(editindex);
 
                 if (validarCampos())
                 {
@@ -199,8 +206,8 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                     mat.Tipo = cbtipo.Text;
                     mat.Precio = txtprecio.Text;
 
-                    
-                        Materiales.Insert(editindex,mat); //Agrego todos los dats que recolecté, en la lista
+                    ListaVerificar.Add(mat.Codigo);
+                    Materiales.Insert(editindex,mat); //Agrego todos los dats que recolecté, en la lista
                 }
 
                 editindex = -1;
