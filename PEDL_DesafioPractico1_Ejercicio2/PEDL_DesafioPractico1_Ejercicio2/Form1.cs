@@ -14,9 +14,8 @@ namespace PEDL_DesafioPractico1_Ejercicio2
     {
 
         List<Material> Materiales = new List<Material>();
-        private int editindex = 0;
-
-        Material material;
+        List<Material> validador = new List<Material>();
+        private int editindex = -1;
 
         private void actualizargrid()
         {
@@ -87,8 +86,8 @@ namespace PEDL_DesafioPractico1_Ejercicio2
 
         public Form1()
         {
-            
             InitializeComponent();
+            
         }
 
         private void DGVdatos_DoubleClick(object sender, EventArgs e)
@@ -104,8 +103,6 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                 txtautor.Text = mat.Autor;
                 txtnombre.Text = mat.Nombre;
                 txtprecio.Text = Convert.ToString(mat.Precio);
-                cbtipo.SelectedItem = mat.Tipo;
-                masckcod.Text = mat.Codigo;
             }
             catch(Exception error)
             {
@@ -121,13 +118,14 @@ namespace PEDL_DesafioPractico1_Ejercicio2
 
             if (validarCampos())
             {
+                
                 mat.Codigo = "ADS" + masckcod.Text;
                 mat.Nombre = txtnombre.Text;
                 mat.Autor = txtautor.Text;
                 mat.Tipo = cbtipo.Text;
-                mat.Precio = Double.Parse(txtprecio.Text);
+                mat.Precio = txtprecio.Text;
 
-                if (editindex > -1) //Verifica si hay un indice seleccionado
+                if (editindex < -1) //Verifica si hay un indice seleccionado
                 {
                     Materiales[editindex] = mat;
                     editindex = -1; //Seteamos de nuevo el indice en -1
@@ -145,6 +143,8 @@ namespace PEDL_DesafioPractico1_Ejercicio2
         {
             if (editindex > -1) //Verificamos si tenemos seleccionado alguna fila
             {
+
+
                 Materiales.RemoveAt(editindex);
                 editindex = -1;
                 actualizargrid();
@@ -184,7 +184,32 @@ namespace PEDL_DesafioPractico1_Ejercicio2
 
         private void btnmodificar_Click(object sender, EventArgs e)
         {
+            if (editindex > -1) //Verificamos si tenemos seleccionado alguna fila
+            {
+                Material mat = new Material();
 
+                Materiales.RemoveAt(editindex);
+
+                if (validarCampos())
+                {
+
+                    mat.Codigo = "ADS" + masckcod.Text;
+                    mat.Nombre = txtnombre.Text;
+                    mat.Autor = txtautor.Text;
+                    mat.Tipo = cbtipo.Text;
+                    mat.Precio = txtprecio.Text;
+
+                    
+                        Materiales.Insert(editindex,mat); //Agrego todos los dats que recolecté, en la lista
+                }
+
+                editindex = -1;
+                actualizargrid();
+            }
+            else
+            {
+                MessageBox.Show("Debe dar doble click primero sobre la fila");
+            }
         }
 
         private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -261,6 +286,11 @@ namespace PEDL_DesafioPractico1_Ejercicio2
                 e.Handled = true;
                 MessageBox.Show("Solo se admiten datos numéricos", "validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

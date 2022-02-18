@@ -41,9 +41,9 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             set { tipo = value; }
         }
 
-        private double precio;
+        private string precio;
 
-        public double Precio
+        public string Precio
         {
             get { return precio; }
             set { precio = value; }

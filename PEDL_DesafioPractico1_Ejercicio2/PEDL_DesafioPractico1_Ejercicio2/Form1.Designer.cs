@@ -48,8 +48,8 @@
             this.txtbrowser = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label6 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVdatos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -171,6 +171,7 @@
             this.DGVdatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVdatos.Location = new System.Drawing.Point(23, 409);
             this.DGVdatos.Name = "DGVdatos";
+            this.DGVdatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVdatos.Size = new System.Drawing.Size(756, 258);
             this.DGVdatos.TabIndex = 1;
             this.DGVdatos.DoubleClick += new System.EventHandler(this.DGVdatos_DoubleClick);
@@ -246,10 +247,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Busqueda";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -259,6 +256,10 @@
             this.label6.Size = new System.Drawing.Size(245, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "*Si desea ver todos los materiales, busque \"todos\"";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Form1
             // 
