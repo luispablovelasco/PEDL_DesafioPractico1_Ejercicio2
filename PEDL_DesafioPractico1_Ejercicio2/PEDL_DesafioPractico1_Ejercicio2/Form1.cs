@@ -127,7 +127,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
 
                 if (ListaVerificar.Contains(mat.Codigo))
                 {
-                    MessageBox.Show("El codigo ya existe, Por favor ingrese otro", "Advertencia");
+                    MessageBox.Show("El codigo ya existe, Por favor ingrese otro", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
                 }
 
@@ -157,7 +157,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             }
             else
             {
-                MessageBox.Show("Debe dar doble click primero sobre la fila");
+                MessageBox.Show("Debe dar doble click primero sobre la fila","Atención",MessageBoxButtons.OK,MessageBoxIcon.Hand);
             }
         }
 
@@ -215,7 +215,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             }
             else
             {
-                MessageBox.Show("Debe dar doble click primero sobre la fila");
+                MessageBox.Show("Debe dar doble click primero sobre la fila", "Advertecia", MessageBoxButtons.OK,MessageBoxIcon.Question);
             }
         }
 
@@ -240,7 +240,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             else
             {
                 e.Handled = true;
-                MessageBox.Show("Solo se admiten letras", "validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -265,7 +265,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             else
             {
                 e.Handled = true;
-                MessageBox.Show("Solo se admiten letras", "validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se admiten letras", "Validación de texto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -291,7 +291,7 @@ namespace PEDL_DesafioPractico1_Ejercicio2
             else
             {
                 e.Handled = true;
-                MessageBox.Show("Solo se admiten datos numéricos", "validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se admiten datos numéricos", "Validación de números", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
